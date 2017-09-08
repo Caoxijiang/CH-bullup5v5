@@ -1,0 +1,154 @@
+
+<div class="row">
+  <!-- button will fade away -->
+  <a class="nav-link waves-effect waves-light btn right" id="refresh_formed_battle_room">刷新房间</a>
+</div>
+
+{% if teams %}
+  <!-- cycle through two teams, put  -->
+  {% for team in teams %}
+	<!-- For the first team -->
+	{% if loop.index % 3 == 1 %}
+	  <div class="row">
+    {% endif %}
+    <div class="col s12 m6 l4">
+      <div class="card battle-card grey darken-2">
+        <div class="card-content white-text">
+          <div class="row">
+            <!-- teaser -->
+            <div class="col s2">
+              <img class="battle-teaser" src="./media/user_icon/{{ team.captain.avatarId }}.png">
+            </div>
+            <div class="col s10">
+              <div class="row">
+                <span class="card-title right">
+				  {{team.roomName}}
+				</span>
+                <div class="chip right ">
+                  {{ team.participantCount }}V{{ team.participantCount }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- first row -->
+        </div>
+
+        <div class="card-action">
+					<a class="team_detail_btn" id="{{ team.roomName }}_team_detail_btn" href="#team-detail-modal">详情</a>
+					<!-- <a id="battle_team_details_btn">详情</a> -->
+          <a href="#">收藏</a>
+
+          <div class="chip right">
+            <i class="fa fa-gamepad" aria-hidden="true"></i>{% if team.winningCondition=='push-crystal' %}推掉水晶{% endif %}
+          </div>
+          <div class="chip right">
+            <i class="fa fa-money" aria-hidden="true"></i> {{ team.rewardAmount }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if loop.index % 3 == 0 %}
+	  </div>
+	{% endif %}
+	{% if loop.index % 3 != 0 and loop.revindex == 1 %}
+</div>
+	{% endif %}
+  {% endfor %}
+{% endif %}
+
+
+<div class="row center-align" id="pagination-holder">
+</div>
+
+<!-- {% if teams %} -->
+<!-- cycle through two teams, put  -->
+<!-- {% for team in teams %} -->
+<!-- team detail modal Structure -->
+<!-- <div id="{{ team.roomName }}_team-detail-modal" name="{{ team.roomName }}_team-detail-modal-name" class="modal"> -->
+<div id="team-detail-modal" class="modal">
+		<!-- <div id="team-detail-modal" class="modal"> -->
+	<div class="modal-content">
+	<div class="row">
+	  <!-- Where Details go -->
+	  <!-- <div class="col s12 m2" id ="{{ team.roomName }}_team_detail_container"> -->
+		<div class="col s12 m2" id ="team_detail_container">
+			<!-- team details -->
+
+	  </div>
+	  <!-- End of Details -->
+	  <div class="col s12 m9">
+		<!--  Radar Chart of two teams                  -->
+		<canvas id="team-detail-chart"></canvas>
+	  </div>
+	</div>
+  </div>
+  <div class="modal-footer">
+	<a href="#waiting-modal" class="modal-action waves-effect waves-green btn-flat" id="invite-battle-btn">邀请战斗</a>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="waiting-modal" class="modal">
+  <div class="modal-content">
+	<h4>等待对方队长应答</h4>
+	<!--            preloader-->
+	<div class="row center">
+	  <div class="preloader-wrapper big active">
+		<div class="spinner-layer spinner-blue">
+		  <div class="circle-clipper left">
+			<div class="circle"></div>
+		  </div>
+		  <div class="gap-patch">
+			<div class="circle"></div>
+		  </div>
+		  <div class="circle-clipper right">
+			<div class="circle"></div>
+		  </div>
+		</div>
+
+		<div class="spinner-layer spinner-red">
+		  <div class="circle-clipper left">
+			<div class="circle"></div>
+		  </div>
+		  <div class="gap-patch">
+			<div class="circle"></div>
+		  </div>
+		  <div class="circle-clipper right">
+			<div class="circle"></div>
+		  </div>
+		</div>
+
+		<div class="spinner-layer spinner-yellow">
+		  <div class="circle-clipper left">
+			<div class="circle"></div>
+		  </div>
+		  <div class="gap-patch">
+			<div class="circle"></div>
+		  </div>
+		  <div class="circle-clipper right">
+			<div class="circle"></div>
+		  </div>
+		</div>
+
+		<div class="spinner-layer spinner-green">
+		  <div class="circle-clipper left">
+			<div class="circle"></div>
+		  </div>
+		  <div class="gap-patch">
+			<div class="circle"></div>
+		  </div>
+		  <div class="circle-clipper right">
+			<div class="circle"></div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div class="modal-footer">
+	<a href="./spa_fight.html" class="modal-action waves-effect waves-green btn-flat nav-link" id="hide-btn">隐藏到后台</a>
+  </div>
+</div>
+<!-- {% endfor %}
+{% endif %}-->
+
+

@@ -1,0 +1,118 @@
+<body>
+<section id="container">
+<!--header start-->
+
+<!--header end-->
+<!--sidebar start-->
+
+<!--sidebar end-->
+<!--main content start-->
+
+<section id="main-content">
+
+    <section class="wrapper">
+
+    <div class="form-w3layouts">
+
+        <!-- page start-->
+        <!-- page start-->
+        <div class="col-md-3 market-update-gd" style="cursor: pointer;width:25%;">
+                <div class="market-update-block clr-block-3">
+                    <div class="col-md-4 market-update-right">
+                        <i class="fa fa-usd"></i>
+                    </div>
+                    <div class="col-md-8 market-update-left">
+                        <h4>余额</h4>
+                        <h3>1,500</h3>
+                        <!-- <p>Other hand, we denounce</p> -->
+                    </div>
+                  <div class="clearfix"> </div>
+                </div>
+            </div>
+       <div class="panel-body" style="margin-top:20px;">
+       
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s8">
+                        <input id="first_name" type="text" class="validate">
+                        <label class="ois" for="first_name">输入金额</label>
+                        
+                    </div>
+                    <div class="qies">
+						<div class="chip ">19$</div>
+						<div class="chip">29$</div>
+						<div class="chip">39$</div>
+						<div class="chip">49$</div>
+							<div class="chip">89$</div>
+								<div class="chip">99$</div>
+									<div class="chip">199$</div>
+						</div>
+                  
+
+                    <div class="row">
+                       
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">手机</label>
+                        </div>
+                    </div>
+                   
+                    <div class="input-field col s6">
+                        <select >
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="1">选项 1</option>
+                          <option value="2">选项 2</option>
+                          <option value="3">选项 3</option>
+                        </select>
+                        <label>选择银行卡</label>
+                      </div>
+                </div>
+            
+              
+                
+            </form>
+            
+        </div>
+            </div>
+
+        <div class="row" >
+            <div class="col-md-12">
+            <div style="margin: 0 auto;width: 300px;">
+                
+               <div class="yangs" style="width: 100px;height: 40px;background: #26a69a;text-align: center;line-height: 40px;color: #fff;border-radius: 10px;cursor: pointer;float: left;"> 
+               Chat Now
+               </div>
+                <div class="yangs" style="width: 100px;height: 40px;background:#B9D3EE ;text-align: center;line-height: 40px;color: #fff;border-radius: 10px;cursor: pointer;float: left;margin-left: 20px;"> 
+               Continue
+               </div>
+               </div>
+            </div>
+        </div>
+
+
+        <!-- page end-->
+        </div>
+</section>
+
+</section>
+
+<script>
+    
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+  	// 价格$
+	$('.chip').click(function () {
+		var iox = $(this).index();
+		var clasvlue = $('.chip').eq(iox).text()
+		$("#first_name").val(clasvlue)
+		$('.ois').addClass('active')
+    $('.chip').eq(iox).addClass("selected").siblings().removeClass('selected')
+
+	})
+</script>
+</body>
